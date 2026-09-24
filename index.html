@@ -476,6 +476,7 @@
             animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             max-height: calc(100vh - 32px);
+            max-height: calc(100dvh - 32px);
             overflow-y: auto;
         }
 
@@ -688,6 +689,10 @@
 
         .check-subtext a { color: var(--gold-light); }
 
+        /* Área táctil más grande en celulares sin cambiar el diseño */
+        .btn-link-service { position: relative; }
+        .btn-link-service::after { content: ''; position: absolute; inset: -12px -10px; }
+
         .custom-check-card.check-requerido {
             border: 1px solid var(--gold-primary);
             background: rgba(212, 175, 55, 0.07);
@@ -751,7 +756,7 @@
             gap: 8px 22px;
             margin: 16px 0 12px;
         }
-        .footer-links a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
+        .footer-links a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding: 6px 2px; }
         .footer-business { font-size: 0.8rem; line-height: 1.7; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1226,6 +1231,7 @@
         let elementoConFocoPrevio = null;
 
         function devolverFoco() {
+            document.body.style.overflow = '';
             if (elementoConFocoPrevio && typeof elementoConFocoPrevio.focus === 'function') {
                 elementoConFocoPrevio.focus();
             }
@@ -1256,6 +1262,7 @@
             if (modal) {
                 elementoConFocoPrevio = document.activeElement;
                 modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
                 if (checkPrecio) checkPrecio.focus();
             }
         }
@@ -1380,6 +1387,7 @@
                 img.alt = miniatura ? miniatura.alt : '';
                 elementoConFocoPrevio = tarjeta || document.activeElement;
                 modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
                 const btnCerrar = modal.querySelector('.btn-close-lightbox');
                 if (btnCerrar) btnCerrar.focus();
             }
