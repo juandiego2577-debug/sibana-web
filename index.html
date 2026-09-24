@@ -9,9 +9,8 @@
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Sibana - Centro de Micropigmentación | Providencia">
     <meta property="og:description" content="Especialistas en Microblading, Sombreado, Delineado de Ojos y Labios en Providencia, Santiago. Resultados naturales, armónicos y de alta precisión.">
-    <meta property="og:image" content="https://juandiego2577-debug.github.io/sibana-web/testimonio1.jpg">
     <meta property="og:url" content="https://juandiego2577-debug.github.io/sibana-web/">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230A0A0A'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' font-weight='700' fill='%23D4AF37' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 
     <script type="application/ld+json">
@@ -19,7 +18,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Sibana - Centro de Micropigmentación",
-      "image": "https://juandiego2577-debug.github.io/sibana-web/testimonio1.jpg",
+      "image": "https://juandiego2577-debug.github.io/sibana-web/logo.avif",
       "url": "https://juandiego2577-debug.github.io/sibana-web/",
       "telephone": "+56968683533",
       "priceRange": "$14.990 - $149.990",
@@ -37,9 +36,7 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <style>
         :root {
@@ -52,8 +49,8 @@
             --gold-light: #F3E5AB;
             --gold-dark: #AA7C11;
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA7C11 100%);
-            --whatsapp-green: #25D366;
-            --whatsapp-hover: #1EBE5D;
+            --whatsapp-green: #0E7A3E;
+            --whatsapp-hover: #0B6E38;
             --whatsapp-glow: rgba(37, 211, 102, 0.4);
             --border-gold: rgba(212, 175, 55, 0.25);
             --border-gold-strong: rgba(212, 175, 55, 0.6);
@@ -420,7 +417,7 @@
         .faq-question span { color: var(--gold-primary); font-size: 1.3rem; transition: transform 0.3s ease; }
         .faq-item.active .faq-question span { transform: rotate(45deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; padding: 0 24px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 350px; padding: 0 24px 20px 24px; }
+        .faq-item.active .faq-answer { max-height: 700px; padding: 0 24px 20px 24px; }
 
         .location { padding: 90px 0; background: var(--bg-color); }
         .location-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
@@ -478,6 +475,9 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 30px rgba(212, 175, 55, 0.12);
             animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            max-height: calc(100vh - 32px);
+            max-height: calc(100dvh - 32px);
+            overflow-y: auto;
         }
 
         @keyframes modalFadeIn {
@@ -599,7 +599,7 @@
             border: none;
             cursor: pointer;
             background: #2A2A2A;
-            color: #777777;
+            color: #A3A3A3;
             box-shadow: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-align: center;
@@ -608,14 +608,14 @@
         .btn-confirmar-whatsapp.activo {
             cursor: pointer;
             pointer-events: auto;
-            background: linear-gradient(135deg, #25D366 0%, #12B04B 100%);
+            background: linear-gradient(135deg, #0E7A3E 0%, #0B6E38 100%);
             color: #FFFFFF;
             box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
             animation: pulseGlow 2s infinite ease-in-out;
         }
 
         .btn-confirmar-whatsapp.activo:hover {
-            background: linear-gradient(135deg, #28E16D 0%, #10A043 100%);
+            background: linear-gradient(135deg, #0B6E38 0%, #095E30 100%);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55);
         }
@@ -667,6 +667,107 @@
             flex-shrink: 0;
         }
 
+        /* Accesibilidad: foco visible al navegar con teclado */
+        a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--gold-light);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -60px;
+            background: var(--gold-primary);
+            color: #000;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            z-index: 4000;
+        }
+        .skip-link:focus { top: 12px; }
+
+        .check-subtext a { color: var(--gold-light); }
+
+        /* Área táctil más grande en celulares sin cambiar el diseño */
+        .btn-link-service { position: relative; }
+        .btn-link-service::after { content: ''; position: absolute; inset: -12px -10px; }
+
+        .custom-check-card.check-requerido {
+            border: 1px solid var(--gold-primary);
+            background: rgba(212, 175, 55, 0.07);
+        }
+        .custom-check-card.check-requerido strong { color: var(--gold-light); }
+
+        #cardTrabajo {
+            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        #cardTrabajo.checked {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+        }
+
+        .etiqueta-obligatorio, .etiqueta-opcional {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 1px 8px;
+            border-radius: 20px;
+            vertical-align: middle;
+        }
+        .etiqueta-obligatorio { background: var(--gold-primary); color: #000; }
+        .etiqueta-opcional { border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-muted); }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 24px;
+            text-align: center;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+        .btn-cargar-mapa {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .btn-cargar-mapa:hover { background: var(--gold-primary); color: #000; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 22px;
+            margin: 16px 0 12px;
+        }
+        .footer-links a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding: 6px 2px; }
+        .footer-business { font-size: 0.8rem; line-height: 1.7; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         @media (max-width: 992px) {
             .grid-services { grid-template-columns: repeat(2, 1fr); }
             .grid-testimonials-images { grid-template-columns: repeat(2, 1fr); }
@@ -683,6 +784,8 @@
 </head>
 <body>
 
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
     <header>
         <div class="nav-wrapper">
             <a href="#" class="logo gold-text">Sibana</a>
@@ -692,6 +795,8 @@
             <button class="btn-header" onclick="document.getElementById('servicios-section').scrollIntoView({behavior: 'smooth'})" type="button">Ver Precios</button>
         </div>
     </header>
+
+    <main id="contenido">
 
     <section class="hero">
         <div class="container">
@@ -821,7 +926,7 @@
                         <p style="color: var(--gold-light); font-weight: 700; font-size: 1.2rem; margin-bottom: 6px;">
                             $19.990 <span style="font-size:0.85rem; font-weight:normal; color:var(--text-muted);">(Valor total)</span>
                         </p>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incluye Tintura + Bótox Regenerador.</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Incluye Tintura + Bótox Regenerador (tratamiento nutritivo de pestañas; no es toxina botulínica).</p>
                         <ul style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px; padding-left: 18px; line-height: 1.7;">
                             <li><strong>Abono de reserva:</strong> $5.000 <span style="font-size:0.75rem; color:var(--gold-primary);"><br>(Se descuenta del total; en el local pagas $14.990)</span></li>
                         </ul>
@@ -867,11 +972,11 @@
             </div>
 
             <div class="grid-testimonials-images">
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio1.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 1" onclick="abrirLightbox('testimonio1.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio1.jpg" alt="Testimonio de clienta Sibana WhatsApp 1" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+WhatsApp+1'">
+                        <img src="testimonio1.jpg" alt="Captura de WhatsApp: una clienta cuenta que se hizo el retoque de cejas, que está muy contenta con el resultado y que lo recomienda." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -879,11 +984,11 @@
                     </div>
                 </div>
 
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio2.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 2" onclick="abrirLightbox('testimonio2.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio2.jpg" alt="Testimonio de clienta Sibana WhatsApp 2" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+WhatsApp+2'">
+                        <img src="testimonio2.jpg" alt="Captura de WhatsApp: fotos del antes y después de un laminado de cejas enviadas por una clienta, que agradece y dice que volverá." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -891,11 +996,11 @@
                     </div>
                 </div>
 
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio3.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 3" onclick="abrirLightbox('testimonio3.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio3.jpg" alt="Testimonio de clienta Sibana Instagram 3" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+Instagram+3'">
+                        <img src="testimonio3.jpg" alt="Captura de Instagram: una clienta agradece la atención, muestra fotos de sus cejas y dice que el servicio es 100% recomendable." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -903,11 +1008,11 @@
                     </div>
                 </div>
 
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio4.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 4" onclick="abrirLightbox('testimonio4.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio4.jpg" alt="Testimonio de clienta Sibana Instagram 4" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+Instagram+4'">
+                        <img src="testimonio4.jpg" alt="Captura de Instagram: una clienta dice que está feliz con sus cejas durante el proceso de cicatrización." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -915,11 +1020,11 @@
                     </div>
                 </div>
 
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio5.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 5" onclick="abrirLightbox('testimonio5.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio5.jpg" alt="Testimonio de clienta Sibana Chat 5" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+Chat+5'">
+                        <img src="testimonio5.jpg" alt="Captura de Instagram: una clienta escribe que el trabajo y la atención fueron excelentes y que ama su delineado de ojos." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -927,11 +1032,11 @@
                     </div>
                 </div>
 
-                <div class="card-testimonial-img" onclick="abrirLightbox('testimonio6.jpg')">
+                <div class="card-testimonial-img" role="button" tabindex="0" aria-label="Ampliar testimonio 6" onclick="abrirLightbox('testimonio6.jpg', this)" onkeydown="activarConTeclado(event, this)">
                     <div class="img-wrapper">
-                        <img src="testimonio6.jpg" alt="Testimonio de clienta Sibana Instagram 6" loading="lazy" onerror="this.src='https://placehold.co/400x700/141414/D4AF37?text=Testimonio+Instagram+6'">
+                        <img src="testimonio6.jpg" alt="Captura de Instagram: una clienta agradece el trabajo, la atención y el profesionalismo del equipo, y dice que le encantaron sus cejas." loading="lazy" width="480" height="853">
                         <div class="img-overlay-hint">
-                            <span class="zoom-badge">
+                            <span class="zoom-badge" aria-hidden="true">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
                                 Ver Completo
                             </span>
@@ -950,10 +1055,10 @@
         </div>
     </section>
 
-    <div id="lightboxModal" class="lightbox-modal" onclick="cerrarLightbox(event)">
+    <div id="lightboxModal" class="lightbox-modal" onclick="cerrarLightbox(event)" role="dialog" aria-modal="true" aria-label="Testimonio ampliado">
         <div class="lightbox-content">
-            <button class="btn-close-lightbox" onclick="cerrarLightboxDirecto()">&times;</button>
-            <img id="lightboxImg" src="" alt="Testimonio ampliado">
+            <button class="btn-close-lightbox" type="button" onclick="cerrarLightboxDirecto()" aria-label="Cerrar imagen ampliada">&times;</button>
+            <img id="lightboxImg" src="" alt="">
         </div>
     </div>
 
@@ -965,46 +1070,55 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button" onclick="toggleFaq(this)">
-                    ¿El procedimiento duele o molesta? <span>+</span>
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-1" id="faq-pregunta-1">
+                    ¿El procedimiento duele o molesta? <span aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer">
-                    Utilizamos anestésicos tópicos profesionales de alta gama en formato gel y crema antes y durante el procedimiento, por lo que la molestia es mínima o prácticamente nula. La mayoría de nuestras clientas se relajan durante la sesión.
+                <div class="faq-answer" id="faq-respuesta-1" role="region" aria-labelledby="faq-pregunta-1">
+                    Aplicamos anestésico tópico en gel o crema antes y durante el procedimiento para reducir la molestia. La sensibilidad varía de una persona a otra; la mayoría de nuestras clientas la describe como leve.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button" onclick="toggleFaq(this)">
-                    ¿Cuánto tiempo dura el resultado en la piel? <span>+</span>
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-2" id="faq-pregunta-2">
+                    ¿Cuánto tiempo dura el resultado en la piel? <span aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-respuesta-2" role="region" aria-labelledby="faq-pregunta-2">
                     En los servicios de micropigmentación (Microblading, Sombreado, Labios y Ojos), la duración estimada es de 12 a 18 meses, dependiendo del tipo de piel y los cuidados posteriores. Los tratamientos de pestañas y cejas (Lifting y Laminado) duran entre 4 y 6 semanas.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button" onclick="toggleFaq(this)">
-                    ¿Qué es el abono de reserva y por qué se solicita? <span>+</span>
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-3" id="faq-pregunta-3">
+                    ¿Qué es el abono de reserva y por qué se solicita? <span aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-respuesta-3" role="region" aria-labelledby="faq-pregunta-3">
                     El abono de reserva ($5.000) sirve para bloquear tu hora exclusiva en agenda. Este monto <strong>se descuenta por completo del valor total</strong> del servicio; es decir, en el local solo pagarás la diferencia restante.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button" onclick="toggleFaq(this)">
-                    ¿Qué pasa si tengo un trabajo de otro centro anterior? <span>+</span>
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-6" id="faq-pregunta-6">
+                    ¿Puedo cancelar o cambiar mi hora? <span aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-respuesta-6" role="region" aria-labelledby="faq-pregunta-6">
+                    Sí. Si nos avisas con <strong>al menos 12 horas de anticipación</strong>, reagendamos tu hora para otro día usando el mismo abono. Si avisas con menos de 12 horas, no te presentas o llegas con más de 20 minutos de atraso, se pierde la reserva y el abono de $5.000. Si somos nosotros quienes debemos cancelar, eliges entre reagendar o la devolución del abono. Revisa los detalles en nuestros <a href="terminos-y-condiciones.html#cancelaciones" style="color: var(--gold-light);">Términos y Condiciones</a>.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-4" id="faq-pregunta-4">
+                    ¿Qué pasa si tengo un trabajo de otro centro anterior? <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer" id="faq-respuesta-4" role="region" aria-labelledby="faq-pregunta-4">
                     Si tienes pigmentación o diseño previo, es un requisito indispensable indicarlo al agendar y enviarnos una fotografía clara de tu zona por WhatsApp. Así evaluamos si podemos realizar un trabajo encima o si requieres evaluación previa.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button" onclick="toggleFaq(this)">
-                    ¿Es obligatorio el retoque a los 30 días? <span>+</span>
+                <button class="faq-question" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-respuesta-5" id="faq-pregunta-5">
+                    ¿Es obligatorio el retoque a los 30 días? <span aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-respuesta-5" role="region" aria-labelledby="faq-pregunta-5">
                     Para los servicios de micropigmentación, el retoque entre el día 30 y 45 es un servicio adicional altamente recomendado y con costo aparte. Sirve para fijar el pigmento definitivo, rellenar espacios y asegurar la máxima durabilidad del diseño.
                 </div>
             </div>
@@ -1029,14 +1143,29 @@
                 </div>
             </div>
             <div class="map-container">
-                <iframe src="https://maps.google.com/maps?q=Lota+2267%2C+Providencia%2C+Santiago%2C+Chile&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: grayscale(80%) invert(90%) contrast(120%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-placeholder" id="mapaPlaceholder">
+                    <p>El mapa es un servicio de Google. Al cargarlo, Google puede recibir tu dirección IP y usar cookies propias.</p>
+                    <button class="btn-cargar-mapa" type="button" onclick="cargarMapa()">Mostrar mapa de Google</button>
+                </div>
             </div>
         </div>
     </section>
 
+    </main>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 <span class="gold-text">Sibana</span> - Centro de Micropigmentación | Lota 2267, Providencia, Santiago.</p>
+            <nav class="footer-links" aria-label="Información legal">
+                <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+                <a href="terminos-y-condiciones.html#cancelaciones">Cancelaciones y Reembolsos</a>
+                <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                <a href="politica-de-privacidad.html#cookies">Política de Cookies</a>
+            </nav>
+            <p class="footer-business">
+                Horario: lunes a viernes de 10:00 a 20:00 y sábados de 10:00 a 19:00, solo con cita previa.<br>
+                Contacto: WhatsApp <a href="https://wa.me/56968683533" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">+56 9 6868 3533</a> · Instagram <a href="https://www.instagram.com/sibana.cl/" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">@sibana.cl</a>
+            </p>
         </div>
     </footer>
 
@@ -1045,33 +1174,33 @@
         <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">¿Dudas? FAQ</span>
     </button>
 
-    <div class="modal-overlay" id="modalConfirmacion">
+    <div class="modal-overlay" id="modalConfirmacion" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
         <div class="modal-content">
             <div class="modal-header-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 Paso Final Antes de Agendar
             </div>
 
-            <h3>Requisitos de Reserva</h3>
+            <h3 id="modalTitulo">Requisitos de Reserva</h3>
 
             <div class="modal-service-tag" id="modalServicioTexto">
                 💎 Servicio: Carga de tratamiento...
             </div>
 
             <div class="checkbox-container">
-                <label class="custom-check-card" id="cardPrecio" onclick="toggleCardCheck('checkPrecio', 'cardPrecio')">
+                <label class="custom-check-card check-requerido" id="cardPrecio" onclick="toggleCardCheck('checkPrecio', 'cardPrecio')">
                     <input type="checkbox" id="checkPrecio" onchange="validarChecks()">
                     <div class="check-text">
-                        <strong>Comprendo la condición de abono</strong>
-                        <span class="check-subtext">El abono ($5.000) se descuenta del total del tratamiento y se requiere para asegurar tu hora en Lota 2267 (Providencia).</span>
+                        <strong>Acepto las condiciones de reserva</strong> <span class="etiqueta-obligatorio">Obligatorio</span>
+                        <span class="check-subtext">Abono de $5.000, se descuenta del total. Se pierde si cancelas con menos de 12 h de aviso, no asistes o llegas más de 20 min tarde. <a href="terminos-y-condiciones.html" target="_blank" rel="noopener">Ver condiciones</a></span>
                     </div>
                 </label>
 
                 <label class="custom-check-card" id="cardTrabajo" onclick="toggleCardCheck('checkTrabajoAnterior', 'cardTrabajo')">
                     <input type="checkbox" id="checkTrabajoAnterior" onchange="validarChecks()">
                     <div class="check-text">
-                        <strong style="color: var(--gold-light);">¿Tienes un trabajo previo de otro centro?</strong>
-                        <span class="check-subtext">Marca esta casilla SÓLO si tienes pigmentación o tatuaje anterior en la zona. <strong style="color: var(--gold-primary);">⚠️ Deberás enviar una foto clara con luz natural por WhatsApp para evaluar tu caso antes de abonar.</strong> (Si NO tienes trabajos previos, déjala desmarcada).</span>
+                        <strong>¿Tienes un trabajo previo de otro centro?</strong> <span class="etiqueta-opcional">Opcional</span>
+                        <span class="check-subtext">Marca esta casilla SÓLO si tienes pigmentación o tatuaje anterior en la zona. Deberás enviar una foto clara con luz natural por WhatsApp para evaluar tu caso antes de abonar. (Si NO tienes trabajos previos, déjala desmarcada).</span>
                     </div>
                 </label>
             </div>
@@ -1099,6 +1228,15 @@
     <script>
         let servicioSeleccionado = "";
         let linkWhatsAppFinal = "";
+        let elementoConFocoPrevio = null;
+
+        function devolverFoco() {
+            document.body.style.overflow = '';
+            if (elementoConFocoPrevio && typeof elementoConFocoPrevio.focus === 'function') {
+                elementoConFocoPrevio.focus();
+            }
+            elementoConFocoPrevio = null;
+        }
 
         function abrirModal(servicio) {
             servicioSeleccionado = servicio;
@@ -1112,21 +1250,27 @@
             const cardPrecio = document.getElementById('cardPrecio');
             const cardTrabajo = document.getElementById('cardTrabajo');
 
-            if (checkPrecio) checkPrecio.checked = true;
+            if (checkPrecio) checkPrecio.checked = false;
             if (checkTrabajo) checkTrabajo.checked = false;
 
-            if (cardPrecio) cardPrecio.classList.add('checked');
+            if (cardPrecio) cardPrecio.classList.remove('checked');
             if (cardTrabajo) cardTrabajo.classList.remove('checked');
 
             validarChecks();
 
             const modal = document.getElementById('modalConfirmacion');
-            if (modal) modal.style.display = 'flex';
+            if (modal) {
+                elementoConFocoPrevio = document.activeElement;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                if (checkPrecio) checkPrecio.focus();
+            }
         }
 
         function cerrarModal() {
             const modal = document.getElementById('modalConfirmacion');
             if (modal) modal.style.display = 'none';
+            devolverFoco();
         }
 
         function toggleCardCheck(checkId, cardId) {
@@ -1175,10 +1319,12 @@
                     const mensaje = encodeURIComponent(`Hola, ya revisé los requisitos en la web y quiero agendar / consultar por: ${servicioSeleccionado}.`) + notaPrevio;
                     linkWhatsAppFinal = `https://wa.me/56968683533?text=${mensaje}`;
                     btn.setAttribute('href', linkWhatsAppFinal);
+                    btn.removeAttribute('aria-disabled');
                 } else {
                     btn.classList.remove('activo');
                     if (btnText) btnText.innerText = "👆 Marca la casilla para continuar";
                     btn.setAttribute('href', '#');
+                    btn.setAttribute('aria-disabled', 'true');
                 }
             }
         }
@@ -1218,25 +1364,68 @@
 
             document.querySelectorAll('.faq-item').forEach(faq => {
                 faq.classList.remove('active');
+                const pregunta = faq.querySelector('.faq-question');
+                if (pregunta) pregunta.setAttribute('aria-expanded', 'false');
                 const span = faq.querySelector('.faq-question span');
                 if (span) span.innerText = '+';
             });
 
             if (!isActive) {
                 item.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
                 const spanBtn = button.querySelector('span');
                 if (spanBtn) spanBtn.innerText = '-';
             }
         }
 
-        function abrirLightbox(srcImage) {
+        function abrirLightbox(srcImage, tarjeta) {
             const modal = document.getElementById('lightboxModal');
             const img = document.getElementById('lightboxImg');
             if (modal && img) {
+                const miniatura = tarjeta ? tarjeta.querySelector('img') : null;
                 img.src = srcImage;
+                img.alt = miniatura ? miniatura.alt : '';
+                elementoConFocoPrevio = tarjeta || document.activeElement;
                 modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                const btnCerrar = modal.querySelector('.btn-close-lightbox');
+                if (btnCerrar) btnCerrar.focus();
             }
         }
+
+        function activarConTeclado(event, elemento) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                elemento.click();
+            }
+        }
+
+        function cargarMapa() {
+            const placeholder = document.getElementById('mapaPlaceholder');
+            if (!placeholder) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://maps.google.com/maps?q=Lota+2267%2C+Providencia%2C+Santiago%2C+Chile&t=&z=16&ie=UTF8&iwloc=&output=embed';
+            iframe.title = 'Mapa de Google con la ubicación de Sibana en Lota 2267, Providencia';
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = '0';
+            iframe.style.filter = 'grayscale(80%) invert(90%) contrast(120%)';
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            placeholder.replaceWith(iframe);
+            iframe.focus();
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            const lightbox = document.getElementById('lightboxModal');
+            const modal = document.getElementById('modalConfirmacion');
+            if (lightbox && lightbox.style.display === 'flex') {
+                cerrarLightboxDirecto();
+            } else if (modal && modal.style.display === 'flex') {
+                cerrarModal();
+            }
+        });
 
         function cerrarLightbox(event) {
             if (event.target.id === 'lightboxModal') {
@@ -1247,6 +1436,7 @@
         function cerrarLightboxDirecto() {
             const modal = document.getElementById('lightboxModal');
             if (modal) modal.style.display = 'none';
+            devolverFoco();
         }
 
         const btnFloatFaq = document.querySelector('.btn-float-faq');
