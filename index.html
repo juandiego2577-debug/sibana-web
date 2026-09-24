@@ -688,6 +688,35 @@
 
         .check-subtext a { color: var(--gold-light); }
 
+        .custom-check-card.check-requerido {
+            border: 1px solid var(--gold-primary);
+            background: rgba(212, 175, 55, 0.07);
+        }
+        .custom-check-card.check-requerido strong { color: var(--gold-light); }
+
+        #cardTrabajo {
+            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        #cardTrabajo.checked {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+        }
+
+        .etiqueta-obligatorio, .etiqueta-opcional {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 1px 8px;
+            border-radius: 20px;
+            vertical-align: middle;
+        }
+        .etiqueta-obligatorio { background: var(--gold-primary); color: #000; }
+        .etiqueta-opcional { border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-muted); }
+
         .map-placeholder {
             width: 100%;
             height: 100%;
@@ -875,7 +904,7 @@
                             <li><strong>Retoque opcional:</strong> $29.990</li>
                         </ul>
                         <div class="critical-notice" style="background: rgba(212,175,55,0.08); padding: 8px; border-radius: 6px; border-left: 2px solid var(--gold-primary); font-size: 0.76rem; color: #ddd; margin-bottom: 20px;">
-                            ⚠️ Si has tenido herpes labial, consulta a tu médico antes de la cita por un tratamiento preventivo. No debes haberte aplicado ácido hialurónico en los labios en los últimos 30 días.
+                            ⚠️ Herpes previo: Aciclovir 4 días antes. Sin ácido hialurónico los últimos 30 días.
                         </div>
                     </div>
                     <button class="btn-link-service" type="button" onclick="abrirModal('Full Lips Labios ($69.990)')">Agendar Full Lips &rarr;</button>
@@ -1154,19 +1183,19 @@
             </div>
 
             <div class="checkbox-container">
-                <label class="custom-check-card" id="cardPrecio" onclick="toggleCardCheck('checkPrecio', 'cardPrecio')">
+                <label class="custom-check-card check-requerido" id="cardPrecio" onclick="toggleCardCheck('checkPrecio', 'cardPrecio')">
                     <input type="checkbox" id="checkPrecio" onchange="validarChecks()">
                     <div class="check-text">
-                        <strong>Acepto las condiciones de reserva y cancelación</strong>
-                        <span class="check-subtext">El abono ($5.000) se descuenta del total del tratamiento y se requiere para asegurar tu hora en Lota 2267 (Providencia). Puedes reagendar avisando con al menos 12 horas de anticipación; si avisas después, no asistes o llegas con más de 20 minutos de atraso, se pierde el abono. Ver <a href="terminos-y-condiciones.html" target="_blank" rel="noopener">Términos y Condiciones</a> y <a href="politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</span>
+                        <strong>Acepto las condiciones de reserva</strong> <span class="etiqueta-obligatorio">Obligatorio</span>
+                        <span class="check-subtext">Abono de $5.000, se descuenta del total. Se pierde si cancelas con menos de 12 h de aviso, no asistes o llegas más de 20 min tarde. <a href="terminos-y-condiciones.html" target="_blank" rel="noopener">Ver condiciones</a></span>
                     </div>
                 </label>
 
                 <label class="custom-check-card" id="cardTrabajo" onclick="toggleCardCheck('checkTrabajoAnterior', 'cardTrabajo')">
                     <input type="checkbox" id="checkTrabajoAnterior" onchange="validarChecks()">
                     <div class="check-text">
-                        <strong style="color: var(--gold-light);">¿Tienes un trabajo previo de otro centro?</strong>
-                        <span class="check-subtext">Marca esta casilla SÓLO si tienes pigmentación o tatuaje anterior en la zona. <strong style="color: var(--gold-primary);">⚠️ Deberás enviar una foto clara con luz natural por WhatsApp para evaluar tu caso antes de abonar.</strong> (Si NO tienes trabajos previos, déjala desmarcada).</span>
+                        <strong>¿Tienes un trabajo previo de otro centro?</strong> <span class="etiqueta-opcional">Opcional</span>
+                        <span class="check-subtext">Marca esta casilla SÓLO si tienes pigmentación o tatuaje anterior en la zona. Deberás enviar una foto clara con luz natural por WhatsApp para evaluar tu caso antes de abonar. (Si NO tienes trabajos previos, déjala desmarcada).</span>
                     </div>
                 </label>
             </div>
